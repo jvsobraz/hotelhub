@@ -1,4 +1,4 @@
-package br.com.fiap.hotelhub.hotel;
+package br.com.fiap.hotelhub.web;
 
 public class HotelController {
     
