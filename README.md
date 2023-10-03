@@ -11,11 +11,14 @@ API para gerenciar tarefas (CRUD) para o o gerenciamento de hotéis.
 
 ## Tecnologias
  
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
-- [SpringDoc OpenAPI 3](https://springdoc.org/v2/#spring-webflux-support)
-- [Mysql](https://dev.mysql.com/downloads/)
+- [Spring Thymeleaf](https://docs.spring.io/spring-framework/reference/web/webmvc-view/mvc-thymeleaf.html)
+- [Spring Validation](https://spring.io/guides/gs/validating-form-input/)
+- [Spring Web](https://spring.io/guides/gs/spring-boot/)
+- [Spring DevTools](https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/using-boot-devtools.html)
+- [Spring H2](https://www.baeldung.com/spring-boot-h2-database)
+- [Spring Lombok](https://www.baeldung.com/intro-to-project-lombok)
+- [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
 
 ## Práticas adotadas
 
