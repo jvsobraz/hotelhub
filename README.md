@@ -50,14 +50,14 @@ Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta [httpie](htt
 
 - Criar Tarefa 
 ```
-$ http POST :8080/todos nome="Todo 1" descricao="Desc Todo 1" prioridade=1
+$ http POST :8080/todos nome="Hotel 1" Quarto="Quarto 1" reserva=1
 
 [
   {
-    "descricao": "Desc Todo 1",
+    "quarto": "quarto 1",
     "id": 1,
-    "nome": "Todo 1",
-    "prioridade": 1,
+    "nome": "Hotel 1",
+    "reserva": 1,
     "realizado": false
   }
 ]
@@ -69,10 +69,10 @@ $ http GET :8080/hoteis
 
 [
   {
-    "descricao": "Desc Todo 1",
+    "quarto": "Quarto 1",
     "id": 1,
-    "nome": "Todo 1",
-    "prioridade": 1,
+    "hotel": "Hotel 1",
+    "reserva": 1,
     "realizado": false
   }
 ]
@@ -80,14 +80,14 @@ $ http GET :8080/hoteis
 
 - Atualizar Hotéis
 ```
-$ http PUT :8080/hoteis/1 nome="Todo 1 Up" descricao="Desc Todo 1 Up" prioridade=2
+$ http PUT :8080/hoteis/1 nome="Hotel 1 Up" quarto="Quarto 1 Up" reserva=2
 
 [
   {
-    "descricao": "Desc Todo 1 Up",
+    "quarto": "quarto 1 Up",
     "id": 1,
-    "nome": "Todo 1 Up",
-    "prioridade": 2,
+    "nome": "Hotel 1 Up",
+    "reserva": 2,
     "realizado": false
   }
 ]
