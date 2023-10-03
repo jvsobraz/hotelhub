@@ -8,6 +8,11 @@
 
 API para gerenciar tarefas (CRUD) para o o gerenciamento de hotéis.
 
+## Integrantes:
+Vinicius Hayashi Yoda Silva Alcantara- RM92969
+
+João Vitor Santiago de Oliveira Braz - RM95749
+
 
 ## Tecnologias
  
