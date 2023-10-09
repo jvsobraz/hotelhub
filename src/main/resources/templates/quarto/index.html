@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Quartos</title>
+</head>
+
+<body class="grey lighten-2">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Hotel HUb</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/quarto">Quartos</a></li>
+                <li><a href="/reserva">Reservas</a></li>
+                <li><a href="/usuario">Usuários</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="card-panel teal lighten-2" th:if="${success}" th:text="${success}"></div>
+        <div class="card-panel red white-text" th:if="${error}" th:text="${error}"></div>
+
+        <h2>Quartos Disponíveis</h2>
+
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Número do Quarto</th>
+                    <th>Tipo</th>
+                    <th>Capacidade Máxima</th>
+                    <th>Preço por Noite</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="quarto : ${quartos}">
+                    <td th:text="${quarto.numero}"></td>
+                    <td th:text="${quarto.tipo}"></td>
+                    <td th:text="${quarto.capacidadeMaxima}"></td>
+                    <td th:text="${quarto.precoPorNoite}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            M.AutoInit();
+        });
+    </script>
+</body>
+
+</html>
