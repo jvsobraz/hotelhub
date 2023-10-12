@@ -2,6 +2,7 @@ package br.com.fiap.hotelhub.reserva;
 
 import java.util.Date;
 
+import br.com.fiap.hotelhub.quarto.Quarto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Reserva {
     @NotBlank
     Date checkout;
 
-    //Quarto quarto;
+    Quarto quarto;
 
     //Usuario usuario;
 

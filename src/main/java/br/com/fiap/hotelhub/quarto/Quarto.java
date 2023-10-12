@@ -27,7 +27,7 @@ public class Quarto {
     String tipoDeQuarto;
 
     @NotBlank
-    @Min(1)
+    @Min(1) @Max(4)
     Integer capacidadeMaxima;
 
     @NotBlank

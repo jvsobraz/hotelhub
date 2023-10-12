@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Formulário de Reserva</title>
+</head>
+
+<body class="grey lighten-2">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Epic Task</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/quarto">Quartos</a></li>
+                <li><a href="/reserva">Reservas</a></li>
+                <li><a href="/usuario">Usuários</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <h2>Cadastrar Reserva</h2>
+
+        <div class="card">
+            <form action="/reserva" method="post" th:object="${reserva}">
+                <div class="card-content">
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{dataCheckin}"
+                            th:classappend="${#fields.hasErrors('dataCheckin')} ? invalid"
+                        >
+                        <label for="dataCheckin">Data de Check-in</label>
+                        <span class="helper-text red-text" th:errors="*{dataCheckin}"></span>
+                    </div>
+                    
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{dataCheckout}"
+                            th:classappend="${#fields.hasErrors('dataCheckout')} ? invalid"
+                        >
+                        <label for="dataCheckout">Data de Check-out</label>
+                        <span class="helper-text red-text" th:errors="*{dataCheckout}"></span>
+                    </div>
+
+                    <div class="input-field">
+                        <select th:field="*{quarto.id}">
+                            <option value="" disabled selected>Selecione o Quarto</option>
+                            <!-- Use Thymeleaf para iterar sobre a lista de quartos disponíveis e exibir as opções -->
+                            <option th:each="quarto : ${quartos}" 
+                                    th:value="${quarto.id}" 
+                                    th:text="${quarto.numero + ' - ' + quarto.tipo}">
+                            </option>
+                        </select>
+                        <label>Quarto Reservado</label>
+                    </div>
+
+                    <div class="input-field">
+                        <select th:field="*{usuario.id}">
+                            <option value="" disabled selected>Selecione o Usuário</option>
+                            <!-- Use Thymeleaf para iterar sobre a lista de usuários e ex
+                        <select th:field="*{usuario.id}">
+                            <option value="" disabled selected>Selecione o Usuário</option>
+                            <!-- Use Thymeleaf para iterar sobre a lista de usuários e exibir as opções -->
+                            <option th:each="usuario : ${usuarios}" 
+                                    th:value="${usuario.id}" 
+                                    th:text="${usuario.nome}">
+                            </option>
+                        </select>
+                        <label>Usuário</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{status}"
+                            th:classappend="${#fields.hasErrors('status')} ? invalid"
+                        >
+                        <label for="status">Status</label>
+                        <span class="helper-text red-text" th:errors="*{status}"></span>
+                    </div>
+
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{precoTotal}"
+                            th:classappend="${#fields.hasErrors('precoTotal')} ? invalid"
+                        >
+                        <label for="precoTotal">Preço Total</label>
+                        <span class="helper-text red-text" th:errors="*{precoTotal}"></span>
+                    </div>
+                </div>
+                <div class="card-action right-align">
+                    <a href="/reserva" class="btn grey">
+                        <i class="material-icons left">chevron_left</i>
+                        Cancelar
+                    </a>
+                    <button class="btn">
+                        <i class="material-icons left">check</i>
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+</body>
+</html>

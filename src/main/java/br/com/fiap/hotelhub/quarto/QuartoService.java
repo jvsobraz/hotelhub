@@ -21,5 +21,9 @@ public class QuartoService {
         repository.deleteById(id);
         return true;
     }
+
+    public void save(Quarto quarto) {
+        repository.save(quarto);
+    }
     
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Formulário de Quarto</title>
+</head>
+
+<body class="grey lighten-2">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Epic Task</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/quarto">Quartos</a></li>
+                <li><a href="/reserva">Reservas</a></li>
+                <li><a href="/usuario">Usuários</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <h2>Cadastrar Quarto</h2>
+
+        <div class="card">
+            <form action="/quarto" method="post" th:object="${quarto}">
+                <div class="card-content">
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{numero}"
+                            th:classappend="${#fields.hasErrors('numero')} ? invalid"
+                        >
+                        <label for="numero">Número do Quarto</label>
+                        <span class="helper-text red-text" th:errors="*{numero}"></span>
+                    </div>
+                    
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{tipo}"
+                            th:classappend="${#fields.hasErrors('tipo')} ? invalid"
+                        >
+                        <label for="tipo">Tipo de Quarto</label>
+                        <span class="helper-text red-text" th:errors="*{tipo}"></span>
+                    </div>
+
+                    <div class="input-field">
+                        <input 
+                            type="number" 
+                            th:field="*{capacidadeMaxima}"
+                            th:classappend="${#fields.hasErrors('capacidadeMaxima')} ? invalid"
+                        >
+                        <label for="capacidadeMaxima">Capacidade Máxima</label>
+                        <span class="helper-text red-text" th:errors="*{capacidadeMaxima}"></span>
+                    </div>
+
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{precoPorNoite}"
+                            th:classappend="${#fields.hasErrors('precoPorNoite')} ? invalid"
+                        >
+                        <label for="precoPorNoite">Preço por Noite</label>
+                        <span class="helper-text red-text" th:errors="*{precoPorNoite}"></span>
+                    </div>
+                </div>
+                <div class="card-action right-align">
+                    <a href="/quarto" class="btn grey">
+                        <i class="material-icons left">chevron_left</i>
+                        Cancelar
+                    </a>
+                    <button class="btn">
+                        <i class="material-icons left">check</i>
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+</body>
+</html>
