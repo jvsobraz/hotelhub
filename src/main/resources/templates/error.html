@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head th:replace="~{_template :: head('erro')}"></head>
+
+<body class="grey lighten-2">
+
+    <main class="container center">
+
+        <h4>Ocorreu um erro inesperado!</h4>
+
+        <p th:text="${message}"></p>
+
+        <a href="/task" class="btn">Voltar para Home</a>
+
+    </main>
+
+
+</body>
+
+</html>

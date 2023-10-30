@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{_template :: head('cadastrar')}"></head>
+
+
+<body class="grey lighten-2">
+    <nav th:replace="~{_template :: #navbar}"></nav>
+
+    <main class="container">
+
+        <h2>Cadastrar Hotel</h2>
+
+        <div class="card">
+            <form th:action="${'/task'}" method="post" th:object="${task}">
+                <div class="card-content">
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            th:field="*{title}"
+                            th:classappend="${#fields.hasErrors('title')} ? invalid"
+                        >
+                        <label for="title">Título</label>
+                        <span class="helper-text red-text" th:errors="*{title}"></span>
+                    </div>
+                    
+                    <div class="input-field">
+                        <textarea 
+                            th:field="*{description}"
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('description')} ? invalid"
+                        ></textarea>
+                        <label for="description">Descrição</label>
+                        <span class="helper-text red-text" th:errors="*{description}"></span>
+                    </div>
+
+                    <label for="score">Pontos</label>
+                    <p class="range-field">
+                        <input 
+                            type="range" 
+                            th:field="*{score}"
+                            min="1" 
+                            max="100" 
+                        />
+                    </p>
+                    <span class="helper-text red-text" th:errors="*{score}"></span>
+
+                </div>
+                <div class="card-action right-align">
+                    <a href="/task" class="btn grey">
+                        <i class="material-icons left">chevron_left</i>
+                        cancelar
+                    </a>
+                    <button class="btn">
+                        <i class="material-icons left">check</i>
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
