@@ -1,35 +1,30 @@
-package br.com.fiap.hotelhub.usuario;
+package br.com.fiap.hotelhub.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
-import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@Entity
-@Data
-public class Usuario {
-    
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+@Controller
+public class UserController {
 
-    @NotBlank
-    String nomeDeUsuario;
+    @Autowired
+    UserRepository repository;
 
-    @NotBlank
-    String senha;
+    @GetMapping("/users")
+    public String userPage(Model model) {
+        model.addAttribute("users", repository.findAll());
+        return "auth/users";
+    }
 
-    @NotBlank
-    String nomeCompleto;
+    @GetMapping("/login")
+    public String loginPage() {
+        return "auth/login";
+    }
 
-    @NotBlank
-    String email;
+    @GetMapping("/logout")
+    public String logoutPage() {
+        return "auth/logout";
+    }
 
-    @NotBlank
-    String funcao;
 }
